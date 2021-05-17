@@ -115,8 +115,18 @@ class KakaotalkMessageView(View):
 
 class KakaotalkMessageResultView(View):
     def get(self, request):
-        response = HttpResponse("RESULT")
+        k1 = request.COOKIES.get('k1')
+        k2 = request.COOKIES.get('k2')
+        k3 = request.COOKIES.get('k3')
+        k4 = request.COOKIES.get('k4')
+        k5 = request.COOKIES.get('k5')
+        response = render(request, 'result.html', {
+            'k1': k1,
+            'k2': k2,
+            'k3': k3,
+            'k4': k4,
+            'k5': k5,
+        })
         for i in range(1, 6):
             response.set_cookie(key='k'+str(i), value=0)
-
         return response
