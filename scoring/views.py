@@ -13,7 +13,7 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)+1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)+1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=1)
@@ -23,7 +23,8 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)-1)
+                print(int(res)-1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)-1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=-1)
@@ -33,7 +34,7 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)+1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)+1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=11)
@@ -43,7 +44,7 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)-1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)-1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=-1)
@@ -53,7 +54,7 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)+1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)+1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=11)
@@ -63,7 +64,7 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)-1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)-1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=-1)
@@ -73,7 +74,7 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)+1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)+1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=11)
@@ -83,7 +84,7 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)-1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)-1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=-1)
@@ -93,7 +94,7 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)+1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)+1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=11)
@@ -103,7 +104,7 @@ class KakaotalkMessageView(View):
             response = redirect(URL)
             try:
                 res = request.COOKIES.get('k'+str(step))
-                response.set_cookie(key='k'+str(step), value=int(res)-1)
+                response.set_cookie(key='k'+str(step), value=str(int(res)-1))
                 return response
             except:
                 response.set_cookie(key='k'+str(step), value=-1)
@@ -113,5 +114,9 @@ class KakaotalkMessageView(View):
 
 
 class KakaotalkMessageResultView(View):
-    def get(self, request, step, result):
-        return HttpResponse("RESULT")
+    def get(self, request):
+        response = HttpResponse("RESULT")
+        for i in range(1, 6):
+            response.set_cookie(key='k'+str(i), value=0)
+
+        return response
